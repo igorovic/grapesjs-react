@@ -28,6 +28,7 @@ type PropsType = {
   // Editor configurations
   storageManager: {},
   blockManager: {},
+  initConfig: {},
 };
 
 function GEditor(props: PropsType) {
@@ -39,6 +40,7 @@ function GEditor(props: PropsType) {
     blocks,
     webpage,
     newsletter,
+    initConfig,
   } = props;
   const [editor, setEditor] = useState(null);
   useEffect(
@@ -66,6 +68,7 @@ function GEditor(props: PropsType) {
           plugins,
           storageManager: storageManager,
           blockManager: blockManager,
+          ...initConfig,
         });
 
         const defaultType = editor.DomComponents.getType('default');
@@ -124,6 +127,7 @@ GEditor.defaultProps = {
   blocks: [],
   storageManager: {},
   blockManager: {},
+  initConfig: {},
 };
 
 export default GEditor;
